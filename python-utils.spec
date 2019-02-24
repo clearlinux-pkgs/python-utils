@@ -6,21 +6,16 @@
 #
 Name     : python-utils
 Version  : 2.3.0
-Release  : 1
+Release  : 2
 URL      : https://github.com/WoLpH/python-utils/releases/download/v2.3.0/python-utils-v2.3.0.tar.xz
 Source0  : https://github.com/WoLpH/python-utils/releases/download/v2.3.0/python-utils-v2.3.0.tar.xz
 Source99 : https://github.com/WoLpH/python-utils/releases/download/v2.3.0/python-utils-v2.3.0.tar.xz.asc
-Summary  : No detailed summary available
+Summary  : A module with some convenient utilities not included with the standard Python install
 Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: python-utils-license = %{version}-%{release}
 Requires: python-utils-python = %{version}-%{release}
 Requires: python-utils-python3 = %{version}-%{release}
-Requires: Sphinx
-Requires: flake8
-Requires: pytest
-Requires: pytest-cov
-Requires: python-mock
 Requires: six
 BuildRequires : buildreq-distutils3
 BuildRequires : pluggy
@@ -69,14 +64,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1548373049
+export SOURCE_DATE_EPOCH=1551027864
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
-export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/python-utils
+cp LICENSE %{buildroot}/usr/share/package-licenses/python-utils/LICENSE
 cp docs/_theme/LICENSE %{buildroot}/usr/share/package-licenses/python-utils/docs__theme_LICENSE
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
@@ -88,6 +83,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
+/usr/share/package-licenses/python-utils/LICENSE
 /usr/share/package-licenses/python-utils/docs__theme_LICENSE
 
 %files python
