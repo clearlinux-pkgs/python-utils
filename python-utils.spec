@@ -6,7 +6,7 @@
 #
 Name     : python-utils
 Version  : 2.3.0
-Release  : 5
+Release  : 6
 URL      : https://github.com/WoLpH/python-utils/releases/download/v2.3.0/python-utils-v2.3.0.tar.xz
 Source0  : https://github.com/WoLpH/python-utils/releases/download/v2.3.0/python-utils-v2.3.0.tar.xz
 Source99 : https://github.com/WoLpH/python-utils/releases/download/v2.3.0/python-utils-v2.3.0.tar.xz.asc
