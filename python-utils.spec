@@ -6,7 +6,7 @@
 #
 Name     : python-utils
 Version  : 2.3.0
-Release  : 21
+Release  : 22
 URL      : https://github.com/WoLpH/python-utils/releases/download/v2.3.0/python-utils-v2.3.0.tar.xz
 Source0  : https://github.com/WoLpH/python-utils/releases/download/v2.3.0/python-utils-v2.3.0.tar.xz
 Source1  : https://github.com/WoLpH/python-utils/releases/download/v2.3.0/python-utils-v2.3.0.tar.xz.asc
@@ -16,15 +16,14 @@ License  : BSD-3-Clause
 Requires: python-utils-license = %{version}-%{release}
 Requires: python-utils-python = %{version}-%{release}
 Requires: python-utils-python3 = %{version}-%{release}
-Requires: six
 BuildRequires : buildreq-distutils3
-BuildRequires : pluggy
-BuildRequires : py-python
-BuildRequires : pytest
-BuildRequires : pytest-runner
-BuildRequires : six
-BuildRequires : tox
-BuildRequires : virtualenv
+BuildRequires : pypi(py)
+BuildRequires : pypi(pytest_runner)
+BuildRequires : pypi(six)
+BuildRequires : pypi-pluggy
+BuildRequires : pypi-pytest
+BuildRequires : pypi-tox
+BuildRequires : pypi-virtualenv
 
 %description
 Useful Python Utils
@@ -67,11 +66,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583539515
+export SOURCE_DATE_EPOCH=1642466478
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
