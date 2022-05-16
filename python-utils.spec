@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xE81444E9CE1F695D (wolph@wol.ph)
 #
 Name     : python-utils
-Version  : 2.3.0
-Release  : 22
-URL      : https://github.com/WoLpH/python-utils/releases/download/v2.3.0/python-utils-v2.3.0.tar.xz
-Source0  : https://github.com/WoLpH/python-utils/releases/download/v2.3.0/python-utils-v2.3.0.tar.xz
-Source1  : https://github.com/WoLpH/python-utils/releases/download/v2.3.0/python-utils-v2.3.0.tar.xz.asc
+Version  : 3.2.0
+Release  : 23
+URL      : https://github.com/WoLpH/python-utils/releases/download/v3.2.0/python-utils-3.2.0.tar.gz
+Source0  : https://github.com/WoLpH/python-utils/releases/download/v3.2.0/python-utils-3.2.0.tar.gz
+Source1  : https://github.com/WoLpH/python-utils/releases/download/v3.2.0/python-utils-3.2.0.tar.gz.asc
 Summary  : Python Utils is a module with some convenient utilities not included with the standard Python install
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -18,8 +18,6 @@ Requires: python-utils-python = %{version}-%{release}
 Requires: python-utils-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 BuildRequires : pypi(py)
-BuildRequires : pypi(pytest_runner)
-BuildRequires : pypi(six)
 BuildRequires : pypi-pluggy
 BuildRequires : pypi-pytest
 BuildRequires : pypi-tox
@@ -51,22 +49,21 @@ Summary: python3 components for the python-utils package.
 Group: Default
 Requires: python3-core
 Provides: pypi(python_utils)
-Requires: pypi(six)
 
 %description python3
 python3 components for the python-utils package.
 
 
 %prep
-%setup -q -n python-utils-v2.3.0
-cd %{_builddir}/python-utils-v2.3.0
+%setup -q -n python-utils-3.2.0
+cd %{_builddir}/python-utils-3.2.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1642466478
+export SOURCE_DATE_EPOCH=1652721232
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -79,8 +76,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/python-utils
-cp %{_builddir}/python-utils-v2.3.0/LICENSE %{buildroot}/usr/share/package-licenses/python-utils/79255442d9b00df6f7c6c074743bc4a2236f83ee
-cp %{_builddir}/python-utils-v2.3.0/docs/_theme/LICENSE %{buildroot}/usr/share/package-licenses/python-utils/3d1c6f6ce9ac9fdbae7bdc2b4d63940561f79edd
+cp %{_builddir}/python-utils-3.2.0/LICENSE %{buildroot}/usr/share/package-licenses/python-utils/79255442d9b00df6f7c6c074743bc4a2236f83ee
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -91,7 +87,6 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/python-utils/3d1c6f6ce9ac9fdbae7bdc2b4d63940561f79edd
 /usr/share/package-licenses/python-utils/79255442d9b00df6f7c6c074743bc4a2236f83ee
 
 %files python
