@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xE81444E9CE1F695D (wolph@wol.ph)
 #
 Name     : python-utils
-Version  : 3.2.0
-Release  : 23
-URL      : https://github.com/WoLpH/python-utils/releases/download/v3.2.0/python-utils-3.2.0.tar.gz
-Source0  : https://github.com/WoLpH/python-utils/releases/download/v3.2.0/python-utils-3.2.0.tar.gz
-Source1  : https://github.com/WoLpH/python-utils/releases/download/v3.2.0/python-utils-3.2.0.tar.gz.asc
+Version  : 3.2.2
+Release  : 24
+URL      : https://files.pythonhosted.org/packages/f1/69/8a29e4edee1821bd28e57e57d0a970ba4d4bf41aad2f2a004bc71035b693/python-utils-3.2.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/f1/69/8a29e4edee1821bd28e57e57d0a970ba4d4bf41aad2f2a004bc71035b693/python-utils-3.2.2.tar.gz
+Source1  : https://files.pythonhosted.org/packages/f1/69/8a29e4edee1821bd28e57e57d0a970ba4d4bf41aad2f2a004bc71035b693/python-utils-3.2.2.tar.gz.asc
 Summary  : Python Utils is a module with some convenient utilities not included with the standard Python install
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -55,15 +55,15 @@ python3 components for the python-utils package.
 
 
 %prep
-%setup -q -n python-utils-3.2.0
-cd %{_builddir}/python-utils-3.2.0
+%setup -q -n python-utils-3.2.2
+cd %{_builddir}/python-utils-3.2.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1652721232
+export SOURCE_DATE_EPOCH=1652806670
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -76,7 +76,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/python-utils
-cp %{_builddir}/python-utils-3.2.0/LICENSE %{buildroot}/usr/share/package-licenses/python-utils/79255442d9b00df6f7c6c074743bc4a2236f83ee
+cp %{_builddir}/python-utils-3.2.2/LICENSE %{buildroot}/usr/share/package-licenses/python-utils/79255442d9b00df6f7c6c074743bc4a2236f83ee
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
