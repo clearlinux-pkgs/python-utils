@@ -1,5 +1,5 @@
 PKG_NAME := python-utils
-URL = https://files.pythonhosted.org/packages/ae/5f/f00bc5ee498bff1ffa44e9dd7bcecd6aa6e20a52e1ab5dd44d4eb752b1bc/python-utils-3.3.2.tar.gz
+URL = https://files.pythonhosted.org/packages/90/a4/f389a34f29b40fc2b63924e05a76ff5723eb47d8ea801bc8c71fcd029a7c/python-utils-3.3.3.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
