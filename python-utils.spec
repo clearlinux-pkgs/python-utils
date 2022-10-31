@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xE81444E9CE1F695D (wolph@wol.ph)
 #
 Name     : python-utils
-Version  : 3.3.3
-Release  : 32
-URL      : https://files.pythonhosted.org/packages/90/a4/f389a34f29b40fc2b63924e05a76ff5723eb47d8ea801bc8c71fcd029a7c/python-utils-3.3.3.tar.gz
-Source0  : https://files.pythonhosted.org/packages/90/a4/f389a34f29b40fc2b63924e05a76ff5723eb47d8ea801bc8c71fcd029a7c/python-utils-3.3.3.tar.gz
-Source1  : https://files.pythonhosted.org/packages/90/a4/f389a34f29b40fc2b63924e05a76ff5723eb47d8ea801bc8c71fcd029a7c/python-utils-3.3.3.tar.gz.asc
+Version  : 3.4.5
+Release  : 33
+URL      : https://files.pythonhosted.org/packages/2f/cc/3f70c1e4b290712ac5ea16609e23cb5473f4aeeafc0d4f149a4da70e63cb/python-utils-3.4.5.tar.gz
+Source0  : https://files.pythonhosted.org/packages/2f/cc/3f70c1e4b290712ac5ea16609e23cb5473f4aeeafc0d4f149a4da70e63cb/python-utils-3.4.5.tar.gz
+Source1  : https://files.pythonhosted.org/packages/2f/cc/3f70c1e4b290712ac5ea16609e23cb5473f4aeeafc0d4f149a4da70e63cb/python-utils-3.4.5.tar.gz.asc
 Summary  : Python Utils is a module with some convenient utilities not included with the standard Python install
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -55,10 +55,10 @@ python3 components for the python-utils package.
 
 
 %prep
-%setup -q -n python-utils-3.3.3
-cd %{_builddir}/python-utils-3.3.3
+%setup -q -n python-utils-3.4.5
+cd %{_builddir}/python-utils-3.4.5
 pushd ..
-cp -a python-utils-3.3.3 buildavx2
+cp -a python-utils-3.4.5 buildavx2
 popd
 
 %build
@@ -66,7 +66,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656426128
+export SOURCE_DATE_EPOCH=1667238275
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -88,7 +88,7 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/python-utils
-cp %{_builddir}/python-utils-3.3.3/LICENSE %{buildroot}/usr/share/package-licenses/python-utils/79255442d9b00df6f7c6c074743bc4a2236f83ee
+cp %{_builddir}/python-utils-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/python-utils/79255442d9b00df6f7c6c074743bc4a2236f83ee || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
